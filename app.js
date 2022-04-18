@@ -1,5 +1,11 @@
 const correctAnswers = ['B', 'B', 'B', 'B'];
 const form = document.querySelector('.quiz-form');
+const result = document.querySelector('.result');
+
+function showScore(scores) {
+    result.querySelector('span').textContent = `${scores}%`;
+    result.classList.remove('d-none');
+}
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -12,5 +18,7 @@ form.addEventListener('submit', e => {
             scores += 25;
         }
     })
-    console.log(scores);
+
+    // show result on page
+   showScore(scores);
 });
