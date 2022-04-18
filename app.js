@@ -20,5 +20,16 @@ form.addEventListener('submit', e => {
     })
 
     // show result on page
-   showScore(scores);
+    scrollTo(0,0);
+    showScore(scores);
+
+    let output = 0;
+    const timer = setInterval(() => {
+        result.querySelector('span').textContent = `${output}%`;
+        if(output === scores) {
+            clearInterval(timer);
+        } else {
+            output++;
+        }
+    }, 10);
 });
